@@ -1,32 +1,42 @@
-<?php include 'koneksi.php'; ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koneksi Database</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CRUD Dosen</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Koneksi Database dengan PHP</h2>
-    <br>
-    <table border="1" cellpadding="10">
-        <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>Email</th>
-        </tr>
-        <?php
-        $no = 1;
-        $query = mysqli_query($conn, "SELECT * FROM pengunjung");
-        while ($row = mysqli_fetch_assoc($query)) {
-            echo "<tr>";
-            echo "<td>".$no++."</td>";
-            echo "<td>".$row['nama']."</td>";
-            echo "<td>".$row['email']."</td>";
-            echo "</tr>";
-        }
-        ?>
+    <h2>Tambah Dosen</h2>
+    <form id="formDosen">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required>
+
+        <label for="nip">NIP:</label>
+        <input type="text" id="nip" name="nip" required>
+
+        <label for="mataKuliah">Mata Kuliah:</label>
+        <input type="text" id="mataKuliah" name="mataKuliah" required>
+
+        <button type="submit">Tambah</button>
+    </form>
+
+    <h2>Data Dosen</h2>
+    <table id="tableDosen">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Nama</th>
+                <th>NIP</th>
+                <th>Mata Kuliah</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data akan ditampilkan di sini -->
+        </tbody>
     </table>
+
+    <script src="script.js"></script>
 </body>
 </html>
